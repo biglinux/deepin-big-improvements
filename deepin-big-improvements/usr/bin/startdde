@@ -1,0 +1,14 @@
+#!/bin/dash
+sudo /usr/lib/deepin-daemon/dde-system-daemon &
+
+
+CONTADOR=0
+while [  $CONTADOR -lt 60 ]; do
+	if [ "$(ps -ax | grep dde-system-daemon | grep sudo | grep -v grep)" != "" ]; then
+    	CONTADOR=60
+	else
+    	sleep 0.1
+	fi
+done
+
+/usr/share/dpkgdivert/deepin-big-improvements/usrbinstartdde

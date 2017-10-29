@@ -1,0 +1,41 @@
+#!/bin/sh
+set -e
+package_name=deepin-big-improvements
+mkdir -p "/usr/share/dpkgdivert/deepin-big-improvements"
+case "$1" in
+  install)
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Accounts.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service"
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Gesture.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service"
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Apps.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service"
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.system.Power.service" --rename "/usr/share/dbus-1/system-services/com.deepin.system.Power.service"
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.service"
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrbinstartdde" --rename "/usr/bin/startdde"
+    ;;
+  upgrade)
+if [ "$(dpkg-divert --list "/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Accounts.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service"
+fi
+if [ "$(dpkg-divert --list "/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Gesture.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service"
+fi
+if [ "$(dpkg-divert --list "/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.Apps.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service"
+fi
+if [ "$(dpkg-divert --list "/usr/share/dbus-1/system-services/com.deepin.system.Power.service")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.system.Power.service" --rename "/usr/share/dbus-1/system-services/com.deepin.system.Power.service"
+fi
+if [ "$(dpkg-divert --list "/usr/share/dbus-1/system-services/com.deepin.daemon.service")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrsharedbus-1system-servicescom.deepin.daemon.service" --rename "/usr/share/dbus-1/system-services/com.deepin.daemon.service"
+fi
+if [ "$(dpkg-divert --list "/usr/bin/startdde")" = "" ]
+then
+    dpkg-divert --package "$package_name" --divert "/usr/share/dpkgdivert/deepin-big-improvements/usrbinstartdde" --rename "/usr/bin/startdde"
+fi
+;;
+esac
+exit 0

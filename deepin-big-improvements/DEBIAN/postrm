@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+package_name=deepin-big-improvements
+case "$1" in
+  remove)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.system.Power.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/bin/startdde"
+    ;;
+  purge)
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.system.Power.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/share/dbus-1/system-services/com.deepin.daemon.service"
+    dpkg-divert --package "$package_name" --rename --remove "/usr/bin/startdde"
+;;
+esac
+exit 0

@@ -1,0 +1,7 @@
+/usr/share/dbus-1/system-services/com.deepin.daemon.Accounts.service
+/usr/share/dbus-1/system-services/com.deepin.daemon.Gesture.service
+/usr/share/dbus-1/system-services/com.deepin.daemon.Apps.service
+/usr/share/dbus-1/system-services/com.deepin.system.Power.service
+/usr/share/dbus-1/system-services/com.deepin.daemon.service
+/usr/bin/startdde
+

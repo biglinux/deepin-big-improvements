@@ -1,0 +1,11 @@
+Package: deepin-big-improvements
+Version: 1.0.0-1big6
+Depends: dde-daemon
+Architecture: all
+Maintainer: Bruno Goncalves <www.biglinux.com.br>
+Section: admin
+Priority: optional
+Installed-Size:96
+Description: Tweaks for deepin desktop
+
+

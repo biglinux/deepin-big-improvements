@@ -1,0 +1,12 @@
+[Unit]
+Description=modify swappiness
+
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/bigswappiness
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

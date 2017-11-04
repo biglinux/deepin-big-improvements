@@ -1,0 +1,14 @@
+#!/bin/sh
+
+SWAPPINESS=50
+COUNT=0
+while [  $COUNT -lt 1 ]; do
+  if [ "$(cat /proc/sys/vm/swappiness)" != "$SWAPPINESS" ]; then
+    echo "$SWAPPINESS" > /proc/sys/vm/swappiness
+    sleep 2
+  else
+    COUNT=1
+  fi
+done
+
+

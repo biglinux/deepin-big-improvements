@@ -1,5 +1,5 @@
 Package: deepin-big-improvements
-Version: 1.0.0-1big8
+Version: 1.0.0-1big9
 Depends: dde-daemon
 Architecture: all
 Maintainer: Bruno Goncalves <www.biglinux.com.br>

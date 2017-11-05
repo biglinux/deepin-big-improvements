@@ -5,10 +5,9 @@ COUNT=0
 while [  $COUNT -lt 1 ]; do
   if [ "$(cat /proc/sys/vm/swappiness)" != "$SWAPPINESS" ]; then
     echo "$SWAPPINESS" > /proc/sys/vm/swappiness
+#	echo "100" > /proc/sys/vm/vfs_cache_pressure
     sleep 2
   else
     COUNT=1
   fi
 done
-
-
